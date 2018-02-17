@@ -1,7 +1,7 @@
 # Stopwatch component
 
 ## Installation
-To be continued...
+`composer require "razra/stopwatch: ^1"`
 
 ## How to use
 1. You can define stopwatch in 2 ways
