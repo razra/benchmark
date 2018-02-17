@@ -1,0 +1,30 @@
+{
+    "name": "razra/stopwatch",
+    "description": "PHP Stopwatch",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["razra", "stopwatch", "php"],
+    "authors": [
+        {
+            "name": "Alex Zholus",
+            "email": "alzholus@gmail.com",
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Razra\\Component\\Stopwatch\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Razra\\Component\\Stopwatch\\Tests\\": "tests/"
+        }
+    }
+}
