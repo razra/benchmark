@@ -1,9 +1,9 @@
-#Stopwatch component
+# Stopwatch component
 
 ## Installation
 To be continued...
 
-##How to use
+## How to use
 1. You can define stopwatch in 2 ways
     
     First: 
@@ -27,7 +27,7 @@ To be continued...
     $reporter->report();
     ```
 
-##Availability to create custom reporter
+## Availability to create custom reporter
 You can always create you report if you want. You can get all executed stopwatches from `StopwatchCollection::getAll()`, it will return array of `Stopwatch` objects all execute stopwatches.
 
 Example structure:
