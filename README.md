@@ -1,6 +1,7 @@
 # Stopwatch component
 
 [![Build Status](https://travis-ci.org/razra/stopwatch.svg?branch=master)](https://travis-ci.org/razra/stopwatch)
+[![License](https://poser.pugx.org/razra/stopwatch/license)](https://packagist.org/packages/razra/stopwatch)
 
 ## Installation
 `composer require "razra/stopwatch: ^1"`
