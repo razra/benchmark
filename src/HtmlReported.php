@@ -8,14 +8,14 @@ use InvalidArgumentException;
 class HtmlReported implements StopwatchReporter
 {
     /**
-     * Path where need put generated html report
+     * Path where need put generated html report.
      *
      * @var string
      */
     protected $pathToReport;
 
     /**
-     * HtmlReported constructor
+     * HtmlReported constructor.
      *
      * @param string $pathToReport Directory where need generate html
      */
@@ -48,41 +48,41 @@ class HtmlReported implements StopwatchReporter
         $layout = $this->replaceCommonMarkers($layout);
         $layout = $this->replaceContentMarkers($layout, $stopwatches);
 
-        file_put_contents($this->pathToReport . DIRECTORY_SEPARATOR . "report_" . time() . '.html', $layout);
+        file_put_contents($this->pathToReport.DIRECTORY_SEPARATOR.'report_'.time().'.html', $layout);
     }
 
     /**
-     * Get html layout
+     * Get html layout.
      *
      * @return string
      */
     protected function getHtmlLayout(): string
     {
-        return file_get_contents(__DIR__ . '/resources/stubs/reports/html/layout.html');
+        return file_get_contents(__DIR__.'/resources/stubs/reports/html/layout.html');
     }
 
     /**
-     * Get body section
+     * Get body section.
      *
      * @return string
      */
     protected function getHtmlContentBody(): string
     {
-        return file_get_contents(__DIR__ . '/resources/stubs/reports/html/content_body.html');
+        return file_get_contents(__DIR__.'/resources/stubs/reports/html/content_body.html');
     }
 
     /**
-     * Get section head
+     * Get section head.
      *
      * @return string
      */
     protected function getHtmlContentHead(): string
     {
-        return file_get_contents(__DIR__ . '/resources/stubs/reports/html/content_header.html');
+        return file_get_contents(__DIR__.'/resources/stubs/reports/html/content_header.html');
     }
 
     /**
-     * Replace markers in main section
+     * Replace markers in main section.
      *
      * @param string $layout
      * @param array $stopwatches An array of Stopwatches objects
@@ -100,14 +100,14 @@ class HtmlReported implements StopwatchReporter
             $content = str_replace('{{SECTION_NAME}}', $sectionName, $contentHead);
 
             foreach ($stopwatchesArray as $stopwatch) {
-                /**
+                /*
                  * @var \Razra\Component\Stopwatch\Stopwatch $stopwatch
                  */
-                $content .= str_replace(array(
-                    '{{SECONDS}}', '{{MILLISECONDS}}'
-                ), array(
-                    $stopwatch->getSeconds(), $stopwatch->getMilliseconds()
-                ), $contentBody);
+                $content .= str_replace([
+                    '{{SECONDS}}', '{{MILLISECONDS}}',
+                ], [
+                    $stopwatch->getSeconds(), $stopwatch->getMilliseconds(),
+                ], $contentBody);
             }
 
             $contentSections[] = $content;
@@ -117,7 +117,7 @@ class HtmlReported implements StopwatchReporter
     }
 
     /**
-     * Replace markers in main layout
+     * Replace markers in main layout.
      *
      * @param string $template
      *
@@ -128,7 +128,7 @@ class HtmlReported implements StopwatchReporter
         $now = new DateTime();
 
         $replace = [
-            '{{DATE_CREATION}}' => $now->format("Y-m-d H:i:s"),
+            '{{DATE_CREATION}}' => $now->format('Y-m-d H:i:s'),
         ];
 
         return str_replace(array_keys($replace), array_values($replace), $template);

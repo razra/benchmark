@@ -7,7 +7,6 @@ use Razra\Component\Stopwatch\StopwatchCollection;
 
 class StopwatchCollectionTest extends TestCase
 {
-
     public function testAddNewStopwatch()
     {
         $stopwatch = Stopwatch::start('test');

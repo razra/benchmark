@@ -5,14 +5,14 @@ namespace Razra\Component\Stopwatch;
 class StopwatchCollection
 {
     /**
-     * Array of Stopwatch objects
+     * Array of Stopwatch objects.
      *
      * @var array
      */
     protected static $stopwatches = [];
 
     /**
-     * Add stopwatch to collection
+     * Add stopwatch to collection.
      *
      * @param \Razra\Component\Stopwatch\Stopwatch $stopwatch
      */
@@ -28,7 +28,7 @@ class StopwatchCollection
     }
 
     /**
-     * Get stopwatches by section name
+     * Get stopwatches by section name.
      *
      * @param string $sectionName
      *
@@ -40,7 +40,7 @@ class StopwatchCollection
     }
 
     /**
-     * Get all stopwatches
+     * Get all stopwatches.
      *
      * @return array
      */
