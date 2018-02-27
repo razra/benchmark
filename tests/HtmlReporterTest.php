@@ -3,9 +3,8 @@
 namespace Razra\Component\Stopwatch\Tests;
 
 use InvalidArgumentException;
-use Razra\Component\Stopwatch\HtmlReported;
 use Razra\Component\Stopwatch\Stopwatch;
-use Razra\Component\Stopwatch\Tests\Utils\OverriddenCollection;
+use Razra\Component\Stopwatch\HtmlReported;
 use Razra\Component\Stopwatch\Tests\Utils\OverriddenHtmlReporter;
 
 class HtmlReporterTest extends TestCase
@@ -17,7 +16,7 @@ class HtmlReporterTest extends TestCase
 
     public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
     {
-        $this->pathForReports = __DIR__ . '/pathForReports';
+        $this->pathForReports = __DIR__.'/pathForReports';
 
         if (! is_dir($this->pathForReports)) {
             mkdir($this->pathForReports);
@@ -30,7 +29,7 @@ class HtmlReporterTest extends TestCase
 
         chmod($this->pathForReports, 0777);
 
-        foreach (glob($this->pathForReports . DIRECTORY_SEPARATOR . '*.html') as $file) {
+        foreach (glob($this->pathForReports.DIRECTORY_SEPARATOR.'*.html') as $file) {
             if (is_file($file)) {
                 unlink($file);
             }
@@ -71,7 +70,7 @@ class HtmlReporterTest extends TestCase
 
         $reporter->report();
 
-        $this->assertEmpty(glob($this->pathForReports . DIRECTORY_SEPARATOR . '/*'));
+        $this->assertEmpty(glob($this->pathForReports.DIRECTORY_SEPARATOR.'/*'));
     }
 
     public function testReportCreateNewReport()
@@ -82,6 +81,6 @@ class HtmlReporterTest extends TestCase
 
         $reporter->report();
 
-        $this->assertNotEmpty(glob($this->pathForReports . DIRECTORY_SEPARATOR . '/*'));
+        $this->assertNotEmpty(glob($this->pathForReports.DIRECTORY_SEPARATOR.'/*'));
     }
 }

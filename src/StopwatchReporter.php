@@ -5,7 +5,7 @@ namespace Razra\Component\Stopwatch;
 interface StopwatchReporter
 {
     /**
-     * Report stopwatches
+     * Report stopwatches.
      *
      * @return void
      */

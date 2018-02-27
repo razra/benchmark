@@ -5,28 +5,28 @@ namespace Razra\Component\Stopwatch;
 class Stopwatch
 {
     /**
-     * Start stopwatch time
+     * Start stopwatch time.
      *
      * @var float
      */
     protected $start;
 
     /**
-     * Stop stopwatch time
+     * Stop stopwatch time.
      *
      * @var float
      */
     protected $end = 0;
 
     /**
-     * Stopwatch section name
+     * Stopwatch section name.
      *
      * @var string
      */
     protected $sectionName;
 
     /**
-     * Stopwatch constructor
+     * Stopwatch constructor.
      *
      * @param string $sectionName
      */
@@ -37,13 +37,13 @@ class Stopwatch
     }
 
     /**
-     * Start stopwatch
+     * Start stopwatch.
      *
      * @param string|null $sectionName
      *
      * @return \Razra\Component\Stopwatch\Stopwatch
      */
-    public static function start(string $sectionName = null): Stopwatch
+    public static function start(string $sectionName = null): self
     {
         $sectionName = $sectionName ?? self::guessSectionName();
 
@@ -51,7 +51,7 @@ class Stopwatch
     }
 
     /**
-     * Get start time
+     * Get start time.
      *
      * @return float
      */
@@ -61,7 +61,7 @@ class Stopwatch
     }
 
     /**
-     * Get stop time
+     * Get stop time.
      *
      * @return float
      */
@@ -71,7 +71,7 @@ class Stopwatch
     }
 
     /**
-     * Get section name
+     * Get section name.
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class Stopwatch
     }
 
     /**
-     * Get seconds of
+     * Get seconds of.
      *
      * @return float
      */
@@ -91,7 +91,7 @@ class Stopwatch
     }
 
     /**
-     * Get milliseconds
+     * Get milliseconds.
      *
      * @return float
      */
@@ -101,14 +101,14 @@ class Stopwatch
     }
 
     /**
-     * Try to find out name of function where stopwatch was called
+     * Try to find out name of function where stopwatch was called.
      *
      * @return string
      */
     private static function guessSectionName(): string
     {
         foreach (debug_backtrace() as $trace) {
-            if (isset($trace['class']) && $trace['class'] == Stopwatch::class) {
+            if (isset($trace['class']) && $trace['class'] == self::class) {
                 continue;
             }
 
@@ -121,11 +121,11 @@ class Stopwatch
     }
 
     /**
-     * Stop stopwatch
+     * Stop stopwatch.
      *
      * @return \Razra\Component\Stopwatch\Stopwatch
      */
-    public function stop(): Stopwatch
+    public function stop(): self
     {
         $this->end = $this->getMicrotime();
 
@@ -135,11 +135,11 @@ class Stopwatch
     }
 
     /**
-     * Reset stopwatch
+     * Reset stopwatch.
      *
      * @return \Razra\Component\Stopwatch\Stopwatch
      */
-    public function reset(): Stopwatch
+    public function reset(): self
     {
         $this->end = 0;
         $this->start = $this->getMicrotime();
@@ -148,7 +148,7 @@ class Stopwatch
     }
 
     /**
-     * Get current time in milliseconds
+     * Get current time in milliseconds.
      *
      * @return float
      */
